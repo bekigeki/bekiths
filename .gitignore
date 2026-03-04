@@ -1,5 +1,8 @@
 inst/doc
 /doc/
+/dev/
+/tests/
+/data-raw/
 /Meta/
 .Rproj.user/
 .Rhistory
