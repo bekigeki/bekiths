@@ -14,11 +14,8 @@ remotes::install_github("bekigeki/bekiths")
 ```r
 library(bekiths)
 
-# Datensatz laden
-bekiths_data
-
 # Datensatz Beschreibung ansehen:
-help(bekiths::bekiths_data)
+help(bekiths_data)
 
 # Vignette zur Erstellung des Datensatzes
 vignette("getting-started", package = "bekiths")
