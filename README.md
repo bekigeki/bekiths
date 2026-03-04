@@ -18,7 +18,7 @@ library(bekiths)
 bekiths_data
 
 # Datensatz Beschreibung ansehen:
-help(bekiths_data)
+help(bekiths::bekiths_data)
 
 # Vignette zur Erstellung des Datensatzes
 vignette("getting-started", package = "bekiths")
