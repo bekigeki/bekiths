@@ -1,9 +1,11 @@
+inst/doc
+/doc/
+/Meta/
 .Rproj.user/
 .Rhistory
 .RData
 .Ruserdata
 .Rproj
 .Rcheck/
-.vscode/
 .projectile
 .DS_Store

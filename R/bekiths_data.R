@@ -1,0 +1,40 @@
+#' Schulstatistik Thüringen auf Schulebene
+#'
+#' Ein Tibble mit schulbezogenen Schülerzahlen nach Schuljahr,
+#' Klassenstufen und Schulbereichen im Bundesland Thüringen.
+#'
+#' @format Ein Tibble mit 7.880 Zeilen und 27 Variablen:
+#' \describe{
+#'   \item{Schuljahr}{Schuljahr (z.B. \code{"17/18"}).}
+#'   \item{Schulnummer}{Schulkennziffer (als Zeichenkette).}
+#'   \item{Schulname}{Vollständiger Name der Schule.}
+#'   \item{N_Schule}{Gesamtzahl der Schülerinnen und Schüler der Schule.}
+#'   \item{N_Primarbereich}{Anzahl der Schülerinnen und Schüler im Primarbereich.}
+#'   \item{N_K01}{Anzahl der Schülerinnen und Schüler in Klassenstufe 1.}
+#'   \item{N_K02}{Anzahl der Schülerinnen und Schüler in Klassenstufe 2.}
+#'   \item{N_K03}{Anzahl der Schülerinnen und Schüler in Klassenstufe 3.}
+#'   \item{N_K04}{Anzahl der Schülerinnen und Schüler in Klassenstufe 4.}
+#'   \item{N_Sekundarbereich_1}{Anzahl der Schülerinnen und Schüler im Sekundarbereich I.}
+#'   \item{N_K05}{Anzahl der Schülerinnen und Schüler in Klassenstufe 5.}
+#'   \item{N_K06}{Anzahl der Schülerinnen und Schüler in Klassenstufe 6.}
+#'   \item{N_K07}{Anzahl der Schülerinnen und Schüler in Klassenstufe 7.}
+#'   \item{N_K08}{Anzahl der Schülerinnen und Schüler in Klassenstufe 8.}
+#'   \item{N_K09}{Anzahl der Schülerinnen und Schüler in Klassenstufe 9.}
+#'   \item{N_K10}{Anzahl der Schülerinnen und Schüler in Klassenstufe 10.}
+#'   \item{N_Sekundarbereich_2}{Anzahl der Schülerinnen und Schüler im Sekundarbereich II.}
+#'   \item{N_K11}{Anzahl der Schülerinnen und Schüler in Klassenstufe 11.}
+#'   \item{N_K12}{Anzahl der Schülerinnen und Schüler in Klassenstufe 12.}
+#'   \item{N_K13}{Anzahl der Schülerinnen und Schüler in Klassenstufe 13.}
+#'   \item{N_Einfuehrungsphase}{Anzahl der Schülerinnen und Schüler in der Einführungsphase der gymnasialen Oberstufe.}
+#'   \item{N_Q01}{Anzahl der Schülerinnen und Schüler in der Qualifikationsphase Q1.}
+#'   \item{N_Q02}{Anzahl der Schülerinnen und Schüler in der Qualifikationsphase Q2.}
+#'   \item{N_Geistige_Entwicklung}{Anzahl der Schülerinnen und Schüler an Schulen mit dem Förderschwerpunkt geistige Entwicklung.}
+#'   \item{source_file}{Name der ursprünglichen Excel-Datei, aus der der Datensatz eingelesen wurde.}
+#'   \item{Stichtag}{Stichtag der Statistik (\code{POSIXct}).}
+#'   \item{erstellt_am}{Zeitpunkt der Erstellung dieses Datenauszugs (\code{POSIXct}).}
+#' }
+#'
+#' @source Schulen und Schüler nach Schulart sowie Schulstufen
+#'   (Primar-, Sekundarstufe I und II) (1A5),
+#'   \url{https://www.schulstatistik-thueringen.de}
+"bekiths_data"
