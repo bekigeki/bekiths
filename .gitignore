@@ -5,4 +5,5 @@
 .Rproj
 .Rcheck/
 .vscode/
+.projectile
 .DS_Store
