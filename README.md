@@ -2,6 +2,7 @@
 
 R-Paket zur Aggregation und Aufbereitung von Schulstatistiken aus https://www.schulstatistik-thueringen.de.
 
+
 ## Installation
 
 ```r
@@ -14,7 +15,7 @@ remotes::install_github("bekigeki/bekiths")
 ```r
 library(bekiths)
 
-# Datensatz Beschreibung ansehen:
+# Datensatz Beschreibung ansehen
 help(bekiths_data)
 
 # Vignette zur Erstellung des Datensatzes

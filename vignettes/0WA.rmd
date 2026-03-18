@@ -1,0 +1,100 @@
+---
+title: "0WA: Schuladressen mit Anzahl Schüler, Klassen, Lehrer, Erzieher, SPF und Lehramtsanwärter"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{getting-started}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+# Setup
+```{r setup}
+library(bekiths)
+library(readxl)
+library(dplyr)
+library(tibble)
+library(stringr)
+library(ggplot2)
+library(tidyr)
+```
+
+# Download Rohdaten 
++ Browse [https://www.schulstatistik-thueringen.de](https://www.schulstatistik-thueringen.de)
++ Rubrik: 0WA
++ download Daten
+
+# Spezifiere Spaltennamen und -positionen
+```{r j1, echo=TRUE}
+# Pfad zu xlsx Rodaten von https://www.schulstatistik-thueringen.de
+devtools::load_all()
+path <- system.file("data-raw", "schulstatistik-thueringen.de", "0WA", package = "bekiths")
+path
+
+# Position Spalten in xlsx
+cols <- c(
+  Schuljahr        = 1,
+  Schulnummer      = 6,
+  Schulname        = 7,
+  Schulamt =  8,
+  PLZ = 9,
+  Ort = 10,
+  Strasse = 11,
+  N_Schueler =15,
+  N_Klassen = 16, 
+  N_Lehrer = 17, 
+  N_Erzieher = 18, 
+  N_SPF = 19
+ # N_Lehramtsanwaerter = 20, 
+ # N_Lehrer_Einsatz = 21, 
+  #N_Erzieher_Einsatz = 22, 
+  #N_SPF_Einsatz = 23, 
+  #N_Lehramtsanwaerter_Einsatz = 24
+)
+```
+# Parse Stichtags-Datum und Download-Datum
+
+```{r j2, echo=TRUE}
+
+
+# Extract Stichtags-Datum und Download-Datum
+meta_specs <- list(
+  ## Stichtag = list(                   
+    ## col = 1,
+    ## pattern = "Stichtag:\\s*([^,]+)",
+    ## group=1
+  ## ),
+  erstellt_am = list(                     
+    col = 1,
+    pattern = "erstellt am\\s*([^/]+) ",
+    group=1
+  )
+)
+```
+
+# Importiere *.xlsx
+```{r import, echo=TRUE}
+# Lese alle xlsx Dateien ein und erstelle data frame
+bekiths_0WA<- read_schools(
+  path = path, 
+  skip=8,
+  cols = cols,
+  meta_specs = meta_specs)
+
+saveRDS(bekiths_0WA, "data/bekiths_0WA.rds")
+
+str(df)
+
+df |> filter(Schuljahr == "20/21")
+```
+
+
+
+
+

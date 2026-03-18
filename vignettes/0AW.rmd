@@ -1,0 +1,81 @@
+---
+title: "Schuladressen mit Anzahl Schüler, Klassen, Lehrer, Erzieher, SPF und Lehramtsanwärter (0WA)"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{getting-started}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+# Setup
+```{r setup}
+library(bekiths)
+library(readxl)
+library(dplyr)
+library(tibble)
+library(stringr)
+library(ggplot2)
+library(tidyr)
+```
+
+# Download Rohdaten 
++ Browse [https://www.schulstatistik-thueringen.de](https://www.schulstatistik-thueringen.de)
++ Rubrik: "Schuladressen mit Anzahl Schüler, Klassen, Lehrer, Erzieher, SPF und Lehramtsanwärter (0WA)"
++ download Daten
+
+# Spezifiere Spaltennamen und -positionen
+```{r j1, echo=TRUE}
+# Pfad zu xlsx Rodaten von https://www.schulstatistik-thueringen.de
+path <- system.file("extdata", "schulstatistik-thueringen.de", "0WA", package = "bekiths")
+
+# Position Spalten in xlsx
+cols <- c(
+  Schuljahr        = 1,
+  Schulnummer      = 6,
+  Schulname        = 8,
+  N_Schueler =  15
+)
+```
+# Parse Stichtags-Datum und Download-Datum
+
+```{r j2, echo=TRUE}
+
+
+# Extract Stichtags-Datum und Download-Datum
+meta_specs <- list(
+  Stichtag = list(                   
+    col = 1,
+    pattern = "Stichtag:\\s*([^,]+)",
+    group=1
+  ),
+  erstellt_am = list(                     
+    col = 1,
+    pattern = "erstellt am\\s*([^/]+) ",
+    group=1
+  )
+)
+```
+
+# Importiere *.xlsx
+```{r import, echo=TRUE}
+# Lese alle xlsx Dateien ein und erstelle data frame
+df <- read_schools(
+  path = path, 
+  skip=10,
+  cols = cols,
+  meta_specs = meta_specs)
+
+str(df)
+```
+
+
+
+
+
